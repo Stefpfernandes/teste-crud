@@ -6,30 +6,28 @@
 
 ---
 
-ComeÁado no dia 13/07/2024
+Come√ßado no dia 13/07/2024 - 
 Finalizado no dia 14/07/2024
 ---
-
-### <a href="https://stefpfernandes.github.io/teste-crud">  Para visualizar o Site! </a>
 
 
 ```bash
 
-Caso queira visualizar, e avaliar melhor o cÛdigo:
-- FaÁa um Fork desse repositÛrio; 
+Caso queira visualizar, e avaliar melhor o c√≥digo:
+- Fa√ßa um Fork desse reposit√≥rio; 
 - Cria uma branch com a sua feature: `git checkout -b minha-feature`;
-- FaÁa commit das suas alteraÁıes: `git commit -m 'feat: Minha nova feature'`; 
-- FaÁa push para a sua branch: `git push origin minha-feature`.
+- Fa√ßa commit das suas altera√ß√µes: `git commit -m 'feat: Minha nova feature'`; 
+- Fa√ßa push para a sua branch: `git push origin minha-feature`.
 
-Depois que o merge da sua pull request for feito, vocÍ pode deletar a sua branch. 
+Depois que o merge da sua pull request for feito, voc√™ pode deletar a sua branch. 
 
-Suba o arquivo sql em um banco de dados `(phpmyadmin)` e altere a conex„o se for necess·rio no arquivo
+Suba o arquivo sql em um banco de dados `(phpmyadmin)` e altere a conex√£o se for necess√°rio no arquivo
 App > Connection.php
 - `mysql:host={seuhost};dbname={nomedobanco};charset=utf8`
 - `host`
 - `senha`
 
-Para rodar o CRUD no seu navegador pode-se utilizar o `XAMPP`, `WAMPSERVER`, ou pela conex„o com o CMD - selecione o caminho que est· a pasta publica dos arquivos `(cd caminho/caminho)`
+Para rodar o CRUD no seu navegador pode-se utilizar o `XAMPP`, `WAMPSERVER`, ou pela conex√£o com o CMD - selecione o caminho que est√° a pasta publica dos arquivos `(cd caminho/caminho)`
 e em seguida digite o comando `(php -S localhost:8080)` a porta pode ser qualquer uma! 
 
 ```
