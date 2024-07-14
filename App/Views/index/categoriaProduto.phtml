@@ -1,0 +1,93 @@
+<style>
+    #listarCategoriaProduto {
+        display: none;
+    }
+
+    .display-align {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+    @media (max-width: 768px) {
+        .form-group {
+            width: 100%;
+        }
+    }
+</style>
+
+<h1>Categoria - Produto</h1>
+<?php if ($this->view->editarCadastro) {?>
+    <a href="/categoriaProduto"><button type="button" class="btn-cadastrar btn btn-success btn-lg">Cadastrar</button></a>
+<?php }?>
+<button type="button" class="btn-cadastrar btn btn-info btn-lg"><?=($this->view->editarCadastro ? 'Editar' : 'Cadastrar')?></button>
+<button type="button" class="btn-listar btn btn-secondary btn-lg">Listar</button>
+<a href="/produto"><button type="button" class="btn-listar btn btn-warning btn-lg">Produto</button></a>
+
+<div id="cadastrarCategoriaProduto" style="display: <?=($this->view->erroCadastro || $this->view->editarCadastro ? '' : 'none')?>">
+    <hr class="my-4">
+    <h3 class="text-center mb-4"><?=($this->view->editarCadastro ? 'Editar' : 'Cadastrar')?> Categoria - Produto</h3>
+
+    <form method="POST" action="/<?=($this->view->editarCadastro ? 'editarCategoriaProduto' : 'registrarCategoriaProduto')?>">
+        <input hidden type="text" name="id" value="<?=($_GET['id'] ? $_GET['id'] : '')?>">
+
+        <div class="form-group">
+            <input id="nome" placeholder="Nome" type="text" class="form-control" name="nome" value="<?=($this->view->categoriaProduto['nome'] ? $this->view->categoriaProduto['nome'] : '')?>" autocomplete="off">
+        </div>
+
+        <div class="display-align">
+            <input type="hidden" name="cadastrarCategoriaProduto" value="cadastrarCategoriaProduto" />
+            <button id="proximo" type="submit" name="cadastrarCategoriaProduto" value="1" class="btn btn-success" data-action='submit'><?=($this->view->editarCadastro ? 'Editar' : 'Salvar')?></button>
+        </div>
+
+        <?php if ($this->view->erroCadastro) {?>
+            <small class="form-text text-danger">*Erro ao tentar cadastrar categoriaProduto, verifique os campos corretamente!</small>
+        <?php }?>
+    </form>
+</div>
+
+<div id="listarCategoriaProduto">
+    <hr class="my-4">
+    <h3 class="text-center mb-4">Listar Categoria - Produto</h3>
+
+    <div class="col-lg-12 mb-lg-0 pd-tp-30">
+        <form id="lista" method="POST" action="/registrar">
+            <div class="table-wrapper">
+                <table class="table table-striped table-round-corner">
+                    <thead class="header-tabela">
+                        <tr>
+                            <th>Ações</th>
+                            <th></th>
+                            <th>Nome</th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="body-tabela">
+                        <?php if ($this->view->dados) {
+                            foreach($this->view->dados as $ind => $categoriaProduto) {?>
+                                <tr>
+                                    <td><a href="/categoriaProduto?ok=editarCategoriaProduto&id=<?php echo $categoriaProduto['id'];?>"><button type="button" class="btn-editar btn btn-primary btn-lg">Editar</button></a></td>
+                                    <td><a href="/categoriaProduto?ok=excluirCategoriaProduto&id=<?php echo $categoriaProduto['id'];?>"><button type="button" class="btn-excluir btn btn-danger btn-lg">Excluir</button></a></td>
+                                    <td><a href="#"><?=$categoriaProduto['nome']?></a></td>
+                                </tr>
+                            <?php } 
+                        } ?>
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    $(".btn-cadastrar").on( "click", function() {
+        $( "#cadastrarCategoriaProduto" ).toggle( "slow" );
+    });
+
+    $(".btn-listar").on( "click", function() {
+        $( "#listarCategoriaProduto" ).toggle( "slow" );
+    });
+</script>

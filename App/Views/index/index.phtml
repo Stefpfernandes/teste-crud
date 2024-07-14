@@ -1,0 +1,39 @@
+<style>
+    .display-align {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<h1>Página Incial</h1>
+<h4>Segue a lista dos nossos <span class="text-info">produtos</span></h4>
+
+<?php foreach($this->view->dados as $ind => $produto) {?>
+    <hr>
+    <div class="col-12">
+        <h5 class="text-info"><?=$produto['nome']?></h5>
+    </div>
+    
+    <div class="row">
+        <div class="col-lg-9 col-md-12">
+            <div class="row">
+                <div class="col-lg-1">
+                    <h5>Info:</h5>
+                </div>
+
+                <div class="col-lg-11">
+                    <p><?=$produto['descricao']?></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-12" style="display: flex; justify-content: flex-end;">
+            <h5 class="text-success">R$<?=$produto['preco']?></h5>
+        </div>
+    </div>   
+<?php } ?>
+
+<div class="display-align">
+    <a href="/produto"><button class="btn btn-info">VER +</button></a>
+</div>
